@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Navigation from "@/components/Navigation.vue";
-import CourseInfoCard from "@/components/CourseInfoCard.vue";
 </script>
 <template>
   <div class="common-layout">
@@ -19,8 +18,7 @@ import CourseInfoCard from "@/components/CourseInfoCard.vue";
         </el-row>
       </el-header>
       <el-main class="card-container">
-        <CourseInfoCard course-name="JavaScript从入门到精通" instructor="尚硅谷" duration="1:53:00"></CourseInfoCard>
-        <CourseInfoCard course-name="Vue3从入门到精通" instructor="尚硅谷" duration="2:20:00"></CourseInfoCard>
+        <router-view></router-view>
       </el-main>
     </el-container>
   </div>
