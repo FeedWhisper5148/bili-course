@@ -1,12 +1,21 @@
 <script setup lang="ts">
 import CourseInfoCard from "@/components/CourseInfoCard.vue";
+import { useCoursesStore } from "@/stores/courses";
+
+const coursesStore = useCoursesStore();
 </script>
 
 <template>
   <div class="course-list">
-    <CourseInfoCard course-name="JavaScript从入门到精通" instructor="尚硅谷" duration="1:53:00"></CourseInfoCard>
-    <CourseInfoCard course-name="Vue3从入门到精通" instructor="尚硅谷" duration="2:20:00"></CourseInfoCard>
-    <CourseInfoCard course-name="React从入门到精通" instructor="B站UP主" duration="3:10:00"></CourseInfoCard>
+    <CourseInfoCard
+      v-for="(course, index) in coursesStore.courses"
+      :key="course.courseName"
+      :course-name="course.courseName"
+      :instructor="course.instructor"
+      :duration="course.duration"
+      :bv-id="course.bvId"
+      :on-delete="() => coursesStore.removeCourse(index)"
+    />
   </div>
 </template>
 
