@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Navigation from "@/components/Navigation.vue";
+import CourseInfoCard from "@/components/CourseInfoCard.vue";
 </script>
 <template>
   <div class="common-layout">
@@ -10,11 +11,17 @@ import Navigation from "@/components/Navigation.vue";
             BiliCourse网课管理系统
           </el-col>
           <el-col :span="10">
-            <navigation></navigation>
+            <Navigation></Navigation>
+          </el-col>
+          <el-col :span="5" class="title">
+            <el-button type="primary">添加课程</el-button>
           </el-col>
         </el-row>
       </el-header>
-      <el-main>Main</el-main>
+      <el-main class="card-container">
+        <CourseInfoCard course-name="JavaScript从入门到精通" instructor="尚硅谷" duration="1:53:00"></CourseInfoCard>
+        <CourseInfoCard course-name="Vue3从入门到精通" instructor="尚硅谷" duration="2:20:00"></CourseInfoCard>
+      </el-main>
     </el-container>
   </div>
 </template>
@@ -43,4 +50,9 @@ import Navigation from "@/components/Navigation.vue";
   text-align: center;
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 </style>
