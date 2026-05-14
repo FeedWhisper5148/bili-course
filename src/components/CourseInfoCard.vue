@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import {Link} from "@element-plus/icons-vue";
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const props = defineProps({
   courseName: {
@@ -27,12 +30,16 @@ const props = defineProps({
 const jumpToBilibili = () => {
   window.open(`https://www.bilibili.com/video/${props.bvId}`, '_blank');
 };
+
+const goToStudy = () => {
+  router.push({ name: 'study', params: { bvId: props.bvId } });
+};
 </script>
 
 <template>
   <el-card class="course-info-card" style="max-width: 480px">
     <div class="course-info-header">
-      <el-link :href="'https://www.example.com/courses/' + courseName" target="_blank">
+      <el-link @click="goToStudy" :underline="false" style="cursor: pointer; width: 100%;">
         <h2>{{ courseName }}</h2>
         <el-icon>
           <Link/>

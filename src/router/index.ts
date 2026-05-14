@@ -29,6 +29,12 @@ const router = createRouter({
       path: '/mind-map',
       name: 'mind-map',
       component: () => import('../views/MindMapView.vue'),
+    },
+    {
+      path: '/study/:bvId',
+      name: 'study',
+      component: () => import('../views/StudyView.vue'),
+      props: true
     }
   ],
 })
